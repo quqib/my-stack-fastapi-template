@@ -21,6 +21,10 @@ from app.utils import (
 router = APIRouter(tags=["login"])
 
 
+@router.get("/")
+def root():
+    return {"message": "Hello World"}
+
 @router.post("login/access-token")
 def login_access_token(
     session: SessionDep, form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
